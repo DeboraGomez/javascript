@@ -1,34 +1,18 @@
-let catalogo = [
-    {
-        id: 1,
-        nombre: "Leche",
-        precio: 399,
-        stock: 50
-    },
-    {
-        id: 2,
-        nombre: "Huevos",
-        precio: 10.99,
-        stock: 1000
-    },
-    {
-        id: 3,
-        nombre: "Yerba",
-        precio: 600,
-        stock: 50
-    },
-    {
-        id: 4,
-        nombre: "Galletitas",
-        precio: 299,
-        stock: 50
-    },
-    {
-        id: 5,
-        nombre: "Café",
-        precio: 799,
-        stock: 30
+class Producto {
+    constructor(id, nombre, precio, stock) {
+        this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
     }
+}
+
+let catalogo = [
+    new Producto(1,"Leche",399,50),
+    new Producto(2,"Huevos",10.99,1000),
+    new Producto(3,"Yerba",600,50),
+    new Producto(4,"Galletitas",299,50),
+    new Producto(5,"Café",799,30)
 ]
 
 let stringCatalogo = catalogo.map(producto => `${producto.id} - ${producto.nombre} - Precio: $${producto.precio}\n`).join("")
