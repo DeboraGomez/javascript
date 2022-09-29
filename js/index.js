@@ -8,7 +8,9 @@ class Product {
     }
 }
 const market = []
-const myCart = []
+const storageCart = window.localStorage.getItem('myCart')
+const jsonCart = JSON.parse(storageCart)
+const myCart = jsonCart || []
 market.push(new Product(1, "Yerba", 180, 17))
 market.push(new Product(2, "Leche", 111, 25))
 market.push(new Product(3, "Bizcochos", 80, 21))
@@ -25,7 +27,7 @@ const htmlProducts = market.map(product => productToHTMLConverter(product, true)
 
 htmlProducts.forEach(product => productsContainer.appendChild(product))
 
-
+refreshCart()
 
 
 function productToHTMLConverter(product) {
@@ -77,6 +79,8 @@ function addProductToCart(productId) {
 }
 
 function refreshCart() {
+    const jsonString = JSON.stringify(myCart)
+    window.localStorage.setItem('myCart', jsonString)
     const htmlCart = cartToHTMLConverter(myCart)
     const myCartContainer = document.getElementById("cartContainer")
     const cartTitle = document.createElement("h3")
