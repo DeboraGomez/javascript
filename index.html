@@ -5,20 +5,222 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/index.css" />
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    </style>
+    <title>Daily Market</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+    <script src="/js/Products.js" defer></script>
+    <script src="/js/Category.js" defer></script>
+    <script src="/js/ofertas.js" defer></script>
+    <script src="/js/categorias.js" defer></script>
+    <script src="/js/bolsa.js" defer></script>
 </head>
 <body>
-    <nav>DEBBIE MARKET</nav>
+    <nav class="navigationBar">
+        <div>
+            <button>
+                <img src="/images/navbar/delivery.png" alt="boton de delivery">
+            </button>
+            <button>
+                <img src="/images/navbar/contact.png" alt="boton de contacto">
+            </button>
+            <button>
+                <img src="/images/navbar/profile.png" alt="boton de perfil">
+            </button>
+        </div>
+        <div>
+            <h1>Daily Market</h1>
+            <ul>
+                <li>
+                    <a>Home</a>
+                </li>
+                <li>
+                    <a>Categorías</a>
+                </li>
+                <li>
+                    <a>Nosotros</a>
+                </li>
+                <li onclick="openBag()">
+                    <a>Bolsa</a>
+                    <div id="badge" class="displayBadge"></div>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <main>
-        <div class="container">
-            <div id="productsContainer">
+        <div id="myBagContainer" class="myBagContainerHidden">
+            <div class="myBag">
+                <h2>Mi Bolsa</h2>
+                <div id="myBagProducts">
+                </div>
+                <p>Subtotal: $200</p>
+                <p>Añadir un cupón de descuento</p>
+                <input type="text" />
+                <p>TOTAL: $150</p>
+                <button>Continuar</button>
             </div>
-            <div id="cartContainer">
-                <h2>Mi Carrito</h2>
+        </div>
+        <input type="text" placeholder="¿ Qué queres comprar hoy?"></input>
+        <img src="/images/bannerMain.png" alt="BANNER PRINCIPAL" />
+        <div class="informationCardsContainer gridTemplate">
+            <div class="informationCard">
+                <div>
+                    <div>
+                        <p>Envíos en el día</p>
+                    </div>
+                    <div>
+                        <img src="/images/icons/delivery.png" alt="icono" />
+                    </div>
+                </div>
+            </div>
+            <div class="informationCard">
+                <div>
+                    <div>
+                        <p>Abierto 24hs.</p>
+                    </div>
+                    <div>
+                        <img src="/images/icons/clock.png" alt="icono" />
+                    </div>
+                </div>
+            </div>
+            <div class="informationCard">
+                <div>
+                    <div>
+                        <p>Guarda tu lista</p>
+                    </div>
+                    <div>
+                        <img src="/images/icons/tasks.png" alt="icono" />
+                    </div>
+                </div>
+            </div>
+            <div class="informationCard">
+                <div>
+                    <div>
+                        <p>Pagá en línea</p>
+                    </div>
+                    <div>
+                        <img src="/images/icons/wallet.png" alt="icono" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ofertasContainer">
+            <h2>NUESTRAS OFERTAS</h2>
+            <p>Increíbles ofertas todas las semanas,</p>
+            <p>productos frescos a precios únicos</p>
+            <div id="ofertasCardsContainer" class="gridTemplate">
+            </div>
+        </div>
+        <div class="categoriaTitle">
+            <h2>Categorías</h2>
+        </div>
+        <div id="categoriasCardsContainer" class="gridTemplate">
+
+        </div>
+        <div class="descuentos">
+            <h3>Descuentos</h3>
+            <div class="gridTemplate">
+                <div>
+                    <h4>20% de Descuento</h4>
+                    <p>Lunes y Jueves</p>
+                    <p>En 1 pago con tarjetas de crédito,Visa, Mastercard y Cabal.</p>
+                    <div>
+                        <img src="/images/descuentos/galicia.png" alt="descuento galicia">
+                    </div>
+                </div>
+                <div>
+                    <h4>25% de Descuento</h4>
+                    <p>Martes y Viernes</p>
+                    <p>En 1 pago con tarjetas de crédito,Visa, Mastercard y Cabal.</p>
+                    <div>
+                        <img src="/images/descuentos/santander.png" alt="descuento santander">
+                    </div>
+                </div>
+                <div>
+                    <h4>30% de Descuento</h4>
+                    <p>Todos los Lunes</p>
+                    <p>En 1 pago con tarjetas de crédito,Visa, Mastercard y Cabal.</p>
+                    <div>
+                        <img src="/images/descuentos/bbva.png" alt="descuento bbva">
+                    </div>
+                </div>
+                <div>
+                    <h4>10% de Descuento</h4>
+                    <p>Martes 25 y Viernes 28</p>
+                    <p>En 1 pago con tarjetas de crédito,Visa, Mastercard y Cabal.</p>
+                    <div>
+                        <img src="/images/descuentos/liberbank.png" alt="descuento liberbank">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gridTemplate nosotros">
+            <div>
+                <div>
+                    <video src="/videos/home.mp4" width="100%" autoplay="true" loop="infinite"></video>
+                </div>
+                <img src="" alt="">
+            </div>
+            <div id="reviews">
+                <p>Nuestros clientes</p>
+                <div>
+                    <div>
+                        <img src="/images/nosotros/avatar1.png" alt="profile picture">
+                    </div>
+                    <div>
+                        <img src="/images/nosotros/filledStar.png" alt="estrella llena">
+                        <img src="/images/nosotros/filledStar.png" alt="estrella llena">
+                        <img src="/images/nosotros/filledStar.png" alt="estrella llena">
+                        <img src="/images/nosotros/filledStar.png" alt="estrella llena">
+                        <img src="/images/nosotros/emptyStar.png" alt="estrella vacia">
+                    </div>
+                </div>
+                <p>“Inmediatez en la entrega”</p>
+            </div>
+            <div>
+                Somos especialistas en lo que hacemos, más de 100 colaboradores para ayudarte con tus compras y que puedas usar tu
+                tiempo para las cosas que realmente importan.
+            </div>
+            <div>
+                <img src="/images/nosotros/nosotros.png" alt="">
             </div>
         </div>
     </main>
-    <footer>Todos los derechos reservados</footer>
-    <script type="text/javascript" src="js/index.js"></script>
+    <footer>
+        <h3>Daily Market</h3>
+        <div class="gridTemplate footerLinks">
+            <div>
+                <h4>La Empresa</h4>
+                <hr>
+                <p>Nosotros</p>
+                <p>Retiro en sucursal</p>
+                <p>Terminos y condiciones</p>
+                <p>Trabaja con nosotros</p>
+            </div>
+            <div>
+                <h4>Servicio al cliente</h4>
+                <hr>
+                <h4>0800-498-0393</h4>
+                <p>De Lunes a Viernes de 8 a 23hs.</p>
+                <p>Sábados y Domingo de 10 a 22hs.</p>
+            </div>
+            <div>
+                <h4>Nuestras Redes</h4>
+                <hr>
+                <p>Facebook</p>
+                <p>Twitter</p>
+                <p>Instagram</p>
+                <p>Tik Tok</p>
+            </div>
+        </div>
+        <div class="gridTemplate footerRegister">
+            <p>¿Queres conocer todas las promos?</p>
+            <input type="text" />
+            <button>Suscribirme</button>
+        </div>
+    </footer>
 </body>
 </html>
