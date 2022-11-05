@@ -1,5 +1,17 @@
-//get shit from localstorage
-function openBag() {
+document.addEventListener('click', function hideBagIfClickOutside(event) {
+    const myBag = document.getElementsByClassName('myBag')[0]
+    const container = document.getElementById('myBagContainer')
+    if (container.classList.contains('myBagContainer') && !myBag.contains(event.target)) {
+        container.classList.add('myBagContainerHidden')
+        container.classList.remove('myBagContainer')
+    }
+});
+
+
+
+function openBag(event) {
+    event.stopPropagation()
+    window.scrollTo(0, 0)
     const strMyBag = window.localStorage.getItem('myBag')
     let myBag = []
     if (strMyBag) {
