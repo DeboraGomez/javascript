@@ -57,11 +57,12 @@ function refreshLocalStorage() {
 }
 
 function refreshView() {
+    const exchangeRate = window.localStorage.getItem('exchangeRate') || 1
     const myBagContainer = document.getElementById('myBagContainer')
-    const subtotal = myBag.reduce((prev, curr) => {
+    const subtotal = (myBag.reduce((prev, curr) => {
         prev += curr.quantity * curr.price
         return prev
-    }, 0)
+    }, 0) * exchangeRate).toFixed(2)
     const bagTemplate =
         `<div class="myBag">
             <h2>Mi Bolsa</h2>
@@ -80,6 +81,8 @@ function refreshView() {
 }
 
 function myBagToHTML() {
+    const exchangeRate = window.localStorage.getItem('exchangeRate') || 1
+
     const htmlBag = myBag.map(product => {
         console.log(product);
         const myBagProductCard = document.createElement('div')
@@ -91,7 +94,7 @@ function myBagToHTML() {
         <p>${product.title}</p>
         <p>Cod. del producto: 030949999</p>
         <div>
-        <p>$${product.price} kg</p>
+        <p>$${(product.price * exchangeRate).toFixed(2)} kg</p>
         <button onclick="decrease(${product.id})">-</button>
         <span>${product.quantity}</span>
         <button onclick="increase(${product.id})">+</button>

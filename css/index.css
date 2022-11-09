@@ -33,15 +33,24 @@ html {
 }
 
 .navigationBar>div:first-child {
-    height: 55px;
+    display: flex;
+    justify-content: space-between;
     background-color: var(--primary-color);
+}
+
+.navigationBar>div:first-child>div:first-child {
+    color: #E6E6E6;
+}
+
+.navigationBar>div>div:nth-child(2) {
+    height: 55px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding-right: 4rem;
 }
 
-.navigationBar>div:first-child>button {
+.navigationBar>div>div:nth-child(2)>button {
     background-color: transparent;
     border: none;
     color: var(--text-color);
@@ -75,6 +84,14 @@ html {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     padding: 0 20px;
+}
+
+.currencyWrapper {
+    display: flex;
+    color: black;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 4rem;
 }
 
 .hiddenBadge {
