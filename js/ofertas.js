@@ -1,3 +1,4 @@
+window.localStorage.setItem('exchangeRate', 1)
 const ofertas = []
 let myBag = []
 const ofertasContainer = document.getElementById('ofertasCardsContainer')

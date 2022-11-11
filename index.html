@@ -12,7 +12,7 @@
     </style>
     <title>Daily Market</title>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
-    <script src="/js/Products.js" defer></script>
+    <script src="/js/Product.js" defer></script>
     <script src="/js/Category.js" defer></script>
     <script src="/js/ofertas.js" defer></script>
     <script src="/js/categorias.js" defer></script>
@@ -24,7 +24,7 @@
         <div>
             <div class="currencyWrapper">
                 <label for="currencyDropdown">Moneda a utilizar</label>
-                <select id="currencyDropdown" onchange="udpatePrices(event)">
+                <select id="currencyDropdown" onchange="udpatePrices(event)" autocomplete="off">
                     <option value="ARS">Peso Argentino</option>
                     <option value="BRL">Real Brasileño</option>
                     <option value="UYU">Peso Uruguayo</option>
